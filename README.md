@@ -167,5 +167,56 @@ var myBanana = Banana.create();
 myBanana.addFooBar();
 ```
 
+### 5. Run something on creation by defining an init method
+```javascript
+var Person = OO.define({
+  firstName: 'Christian',
+  lastName: 'Alfoni',
+  init: function () {
+    console.log(this.firstName + ' has been created');
+  }
+});
+Person.create(); // => Christian has been created
+```
+
 # Performance
 I have not done any speed tests, but of course it will be slower than using constructors and object.create... but again. Most code out there are web applications and it is a lot more important to build code that is easy to understand and managable. jQuery is a good example of that. They do some pretty crazy stuff, and that is DOM related, the slowest part of our environment. So if you are not building a crazy huge app that has insanse amount of constructors, inheritance etc. I can not see it as a bottleneck.
+
+# What about SUPER?
+Personally I have never used SUPER, it might make a whole lot of sense to some people, but my experience building SPA I rarely meet entities that are that complex. And I find them quite confusing. Which version of f.ex. "init" does what? It might make more sense to give those methods different names, that explains what they are actually doing. F.ex.:
+
+```javascript
+var Person = OO.define('Person', {
+  firstName: 'Christian',
+  lastName: 'Alfoni',
+  createCombinedName: function () {
+    this.combinedName = this.firstName + ' ' + this.lastName;
+  }
+});
+var Employee = OO.define('Employee', {
+  title: 'CEO',
+  init: function () {
+    this.createCombinedName();
+    this.combinedName += ' - ' + this.title + ';
+    
+  }
+});
+```
+Instead of:
+```javascript
+var Person = OO.define('Person', {
+  firstName: 'Christian',
+  lastName: 'Alfoni',
+  init: function () {
+    this.combinedName = this.firstName + ' ' + this.lastName;
+  }
+});
+var Employee = OO.define('Employee', {
+  title: 'CEO',
+  init: function () {
+    this._super.apply(this, arguments); // Typical syntax, though not needed here
+    this.combinedName += ' - ' + this.title + ';
+  }
+});
+```
+Maybe not the best example, but you get the idea :-)
