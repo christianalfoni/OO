@@ -43,7 +43,7 @@ console.log(me);
 */
 ```
 
-When logging out this object you will see that all properties defined, except the methods are part of the instance, the methods are part of the prototype.
+When logging out this object you will see that all properties defined, except the methods, are part of the instance. The methods are part of the prototype.
 
 But if you want to, you can:
 ```javascript
