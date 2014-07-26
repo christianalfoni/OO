@@ -120,7 +120,17 @@ console.log ( Me.create() );
   }
 */
 ```
-### 2. Specifically ask for inheritance
+### 2. Defaults are part of a definition, not an argument check
+```javascript
+function myDefinition (firstName) {
+  this.firstName = firstName || ''; // Kind of a pain
+}
+// Compared to
+OO.define({
+  firstName: ''
+})
+```
+### 3. Specifically ask for inheritance
 ```javascript
 var Person = OO.define({
   firstName: 'Christian',
@@ -139,7 +149,7 @@ console.log(me.__proto__);
   }
 */
 ```
-### 3. Setting names gives correct instanceOf check
+### 4. Setting names gives correct instanceOf check
 ```javascript
 var Person = OO.define('Person', {
   firstName: 'Christian',
@@ -155,7 +165,7 @@ var meWorking = Employee.create();
 console.log(meWorking.is('Person')); // => true
 console.log(meWorking.is('Employee')); // => true
 ```
-### 4. Can safely extend with own methods
+### 5. Can safely extend with own methods
 ```javascript
 OO.instancePrototype.addFooBar = function () {
   this.foo = 'bar';
@@ -167,7 +177,7 @@ var myBanana = Banana.create();
 myBanana.addFooBar();
 ```
 
-### 5. Run something on creation by defining an init method
+### 6. Run something on creation by defining an init method
 ```javascript
 var Person = OO.define({
   firstName: 'Christian',
