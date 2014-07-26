@@ -98,7 +98,7 @@ Backbone.Model.extend({
 ```
 Will give you problems. Since the array is a "complex object" it will be shared among all models.
 
-I fell in love with the Backbone syntax. Describing constructors like an object makes a lot more sense to me, because that is how you will see them later, also when debugging them. Using "extend" as a method for creating "sub-classes" also makes a lot more sense than "Employee.prototype = new Person" or "Employee.prototype = Object.create(Person.prototype)". Though it helps with Object.create, we still have the quirky constructor function that does translate as well from syntax to result.
+I fell in love with the Backbone syntax. Describing constructors like an object makes a lot more sense to me, because that is how you will see them later, also when debugging them. Using "extend" as a method for creating "sub-classes" also makes a lot more sense than "Employee.prototype = new Person" or "Employee.prototype = Object.create(Person.prototype)". Though it helps with Object.create, we still have the quirky constructor function that does not translate as well from syntax to result.
 
 I have also had quite a bit of experience with Angular JS lately and the way their "$scope" works. Even though it reflects scope inheritance, it really is just prototype inheritance. It is a brilliant use of it and it says something about how javascript works. An instance is not necessarely a brand new copy of the "blueprint", there are inherited properties... the question is: "How should they be defined, what makes the most sense?"
 
