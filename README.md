@@ -6,7 +6,7 @@ An experiment on handling inheritance and constructors so that it makes sense
 # The syntax
 
 This is how you would define a type of object. Note that this is just like defining a constructor, though you 
-get it in the nice object-syntax. Think of this as defining defaults for the objects
+get it in the nice object-syntax. Think of this as defining defaults for the objects you will later produce.
 
 ```javascript
 var Person = OO.define({
@@ -14,7 +14,7 @@ var Person = OO.define({
   lastName: '',
   notesToSelf: [],
   gender: 'male',
-  age: 18,
+  age: 30,
   getName: function () {
     return this.firstName + ' ' + this.lastName;
   }
@@ -36,7 +36,7 @@ console.log(me);
   {
     firstName: 'Christian',
     lastName: 'Alfoni',
-    age: 18,
+    age: 30,
     notesToSelf: [],
     gender: 'male'
   }
@@ -77,7 +77,7 @@ console.log(somebodyElse);
   {
     firstName: 'Ole',
     lastName: 'Hansen',
-    age: 18,
+    age: 30,
     notesToSelf: [],
     gender: 'male',
     salary: {
@@ -102,7 +102,7 @@ I fell in love with the Backbone syntax. Describing constructors like an object 
 
 I have also had quite a bit of experience with Angular JS lately and the way their "$scope" works. Even though it reflects scope inheritance, it really is just prototype inheritance on object properties. It really is a brilliant use of it and it says something about how javascript works. An instance is not necessarely a brand new copy of the "blueprint", there are inherited properties... the question is: "How should it be defined, what makes the most sense?"
 
-If you are an experienced programmer, especially coming from a different language, I would be suprised if you got this far :-) I would expect a silent "douche" and going to other reads on the next. But this is the great thing about JavaScript, we can play around with it, challenge how we think and though this solution ends up not being that great... at least it tries to challenge a bit how we think.
+If you are an experienced programmer, especially coming from a different language, I would be suprised if you got this far :-) I would expect a silent "douche" and going to other reads on the net. But this is the great thing about JavaScript, we can play around with it, challenge how we think and though this solution might not be your cup of tea... at least it tries to challenge a bit how we think.
 
 # The goodies we get
 
