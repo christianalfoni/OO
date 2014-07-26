@@ -165,7 +165,7 @@ var meWorking = Employee.create();
 console.log(meWorking.is('Person')); // => true
 console.log(meWorking.is('Employee')); // => true
 ```
-### 5. Can safely extend with own methods
+### 5. Can safely extend all objects with methods
 ```javascript
 OO.instancePrototype.addFooBar = function () {
   this.foo = 'bar';
