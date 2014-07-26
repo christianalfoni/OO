@@ -1,7 +1,7 @@
 OO
 ==
 
-An experiment on handling inheritance and constructors so that it makes sense
+An experiment on handling inheritance and constructors with the object syntax.
 
 # The syntax
 
