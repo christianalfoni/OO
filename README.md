@@ -230,3 +230,26 @@ var Employee = OO.define('Employee', {
 });
 ```
 Maybe not the best example, but you get the idea :-)
+
+# What about private variables?
+I admit that being able to use private variables in the constructor function is very powerful, but there is one big problem with it... you can not access them when testing. 
+```javascript
+function Person () {
+  var myPrivate = '';
+  this.myMethod = function (something) {
+    return something + myPrivate;
+  }
+}
+```
+So I believe it is better to add it to the object, but you note that it is private using underscore:
+```javascript
+var Person = OO.define('Person', {
+  _myPrivate: '',
+  firstName: 'Christian',
+  lastName: 'Alfoni',
+  init: function () {
+    this.combinedName = this.firstName + ' ' + this.lastName;
+  }
+});
+```
+You might argue that you should not return something that should not be changed... but I argue back: "Everything can be changed in JavaScript". You can change whatever methods, properties etc. you want, even native ones. 
